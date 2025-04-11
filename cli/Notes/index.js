@@ -40,6 +40,26 @@ program
         console.log(`Note retrieved: ${note[0].title} - ${note[0].content} (${note[0].created_at})`);
     });
 
+
+    program
+    .command('update <id>')
+    .option('--title <title>')
+    .option('--content <content>')
+    .option('--tags <tags>')
+    .action(async (id, opts) => {
+      const result = await sdk.updateNote(id, opts);
+      console.log(`${result.message} note(s) updated.`);
+    });
+
+
+    program
+    .command('delete <id>')
+    .action(async (id) => {
+      const result = await sdk.deleteNote(id);
+      console.log(`${result.message} note(s) deleted.`);
+    });
+
+
 program.parse();
 
 
