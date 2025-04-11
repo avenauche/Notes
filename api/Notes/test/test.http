@@ -1,0 +1,45 @@
+// This file contains HTTP requests for testing the Notes API.
+// Make sure to run the server before executing these requests.
+
+###
+# Create a new note
+POST http://localhost:3000/note
+Content-Type: application/json
+
+{
+  "title": "this is a sample note",
+  "content": "Sample Note",
+  "tags": ["test", "note"]
+}
+
+
+###
+# Get all notes
+GET http://localhost:3000/notes
+Content-Type: application/json  
+
+###
+
+GET http://localhost:3000/note/15
+Content-Type: application/json  
+
+
+###
+PUT http://localhost:3000/note/15
+Content-Type: application/json
+
+{
+  "title": "Updated Test Note",
+  "content": "This is an updated test note.",
+  "tags": ["updated", "note"]
+}
+
+
+###
+
+POST http://localhost:3000/note/15/delete
+Content-Type: application/json
+
+{
+    "id": 1
+}
